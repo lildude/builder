@@ -576,6 +576,8 @@ function build_addon() {
         docker_cli+=("--label" "io.hass.url=$url")
     fi
 
+    bashio::log.info "Docker CLI: ${docker_cli[*]}"
+
     # Start build
     run_build "$TARGET" "$repository" "$image" "$version" \
         "$build_from" "$build_arch" docker_cli[@] docker_tags[@] "${shadow_repository}"
